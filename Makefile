@@ -27,6 +27,7 @@ setup: $(COPY)
 	# homebrew packages
 	brew install bash-completion
 	brew install emacs --with-cocoa
+	brew linkapps emacs
 	brew install git
 	brew install python3
 
