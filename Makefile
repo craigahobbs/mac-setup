@@ -1,8 +1,9 @@
 .PHONY: help
 help:
-	@echo "usage: make [help|setup]"
+	@echo "usage: make [help|setup|update]"
 
-# Create a rule to copy a file - src_path, dst_dir
+
+# File copy rules - src_path, dst_dir
 define COPY_RULE
 $(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1))): $(1)
 	mkdir -p $(2)
@@ -11,15 +12,15 @@ $(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1))): $(1)
 COPY = $(COPY) $(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1)))
 endef
 
-# File copy rules
 $(eval $(call COPY_RULE, _bash_profile, $(HOME), .bash_profile))
 $(eval $(call COPY_RULE, _bashrc,       $(HOME), .bashrc))
 $(eval $(call COPY_RULE, _emacs,        $(HOME), .emacs))
 $(eval $(call COPY_RULE, _screenrc,     $(HOME), .screenrc))
 $(eval $(call COPY_RULE, bin/emacs,     $(HOME)/bin))
 
-.PHONY: setup
-setup: $(COPY)
+
+.PHONY: update
+update: $(COPY)
 
     # Install homembrew
 	-ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -40,6 +41,10 @@ setup: $(COPY)
 		-e '    set default settings to settings set "MyProfile"' \
 		-e '    set startup settings to settings set "MyProfile"' \
 		-e 'end tell'
+
+
+.PHONY: setup
+setup: update
 
     # Set the launcher path (requires reboot)
 	sudo launchctl config user path "$(PATH)"
