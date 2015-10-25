@@ -1,0 +1,33 @@
+#
+# Setup notes:
+#
+# After homebrew install execute the following command (from http://apple.stackexchange.com/a/198282):
+#
+# sudo launchctl config user path $PATH
+#
+
+export PATH=$HOME/bin:$PATH
+
+# enable terminal colors
+export CLICOLOR=1
+
+# homebrew
+export HOMEBREW_BUILD_FROM_SOURCE=1
+
+# bash-completion
+if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+    source "$(brew --prefix)/etc/bash_completion"
+fi
+
+# git
+if [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ]; then
+    source "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
+fi
+if [ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]; then
+    source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+    export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+fi
+
+# pip
+export PIP_NO_BINARY=1
+export PIP_DISABLE_PIP_VERSION_CHECK=1
