@@ -25,11 +25,11 @@ setup: $(COPY)
 	-ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 	# homebrew packages
-	brew install bash-completion
-	brew install emacs --with-cocoa
-	brew linkapps emacs
-	brew install git
-	brew install python3
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew install bash-completion
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew install emacs --with-cocoa
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew linkapps emacs
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew install git
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew install python3
 
     # Add personal terminal profile
 	osascript \
