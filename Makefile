@@ -4,7 +4,7 @@ help:
 
 # Create a rule to copy a file - src_path, dst_dir
 define COPY_RULE
-$(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1))):
+$(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1))): $(1)
 	mkdir -p $(2)
 	cp $(1) $(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1)))
 
@@ -22,7 +22,7 @@ $(eval $(call COPY_RULE, bin/emacs,     $(HOME)/bin))
 setup: $(COPY)
 
     # Install homembrew
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	-ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 	# homebrew packages
 	brew install bash-completion

@@ -1,11 +1,6 @@
-#
-# Setup notes:
-#
-# After homebrew install execute the following command (from http://apple.stackexchange.com/a/198282):
-#
-# sudo launchctl config user path $PATH
-#
+#-*- mode: sh -*-
 
+# personal bin directory
 export PATH=$HOME/bin:$PATH
 
 # enable terminal colors
