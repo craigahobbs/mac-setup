@@ -1,31 +1,34 @@
 .PHONY: help
 help:
-	@echo "usage: make [help|setup|update]"
+	@echo "usage: make [help|copy|update|setup]"
 
 
-# File copy rules - src_path, dst_dir
-define COPY_RULE
-$(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1))): $(1)
-	mkdir -p $(2)
-	cp $(1) $(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1)))
+.PHONY: copy
+copy:
 
-COPY = $(COPY) $(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1)))
+# File copy rule function - src_path, dst_dir
+define COPY_RULE_FN
+$(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1))): $(strip $(1))
+	mkdir -p $$(dir $$@)
+	cp $$< $$@
+
+copy: $(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1)))
 endef
 
-$(eval $(call COPY_RULE, _bash_profile, $(HOME), .bash_profile))
-$(eval $(call COPY_RULE, _bashrc,       $(HOME), .bashrc))
-$(eval $(call COPY_RULE, _emacs,        $(HOME), .emacs))
-$(eval $(call COPY_RULE, _screenrc,     $(HOME), .screenrc))
-$(eval $(call COPY_RULE, bin/emacs,     $(HOME)/bin))
+$(eval $(call COPY_RULE_FN, _bash_profile, $(HOME), .bash_profile))
+$(eval $(call COPY_RULE_FN, _bashrc,       $(HOME), .bashrc))
+$(eval $(call COPY_RULE_FN, _emacs,        $(HOME), .emacs))
+$(eval $(call COPY_RULE_FN, _screenrc,     $(HOME), .screenrc))
+$(eval $(call COPY_RULE_FN, bin/emacs,     $(HOME)/bin))
 
 
 .PHONY: update
-update: $(COPY)
+update: copy
 
     # Install homembrew
 	-ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-	# homebrew packages
+    # homebrew packages
 	HOMEBREW_BUILD_FROM_SOURCE=1 brew install bash-completion
 	HOMEBREW_BUILD_FROM_SOURCE=1 brew install emacs --with-cocoa
 	HOMEBREW_BUILD_FROM_SOURCE=1 brew linkapps emacs
