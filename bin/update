@@ -1,0 +1,7 @@
+#!/bin/sh -e -v
+brew update
+brew upgrade --all
+brew cleanup
+npm update
+npm update -g
+npm cache clean
