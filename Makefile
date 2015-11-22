@@ -39,7 +39,7 @@ update: copy
 		python3 \
 		tree
 	brew linkapps emacs
-	npm install -g npm@latest
+	npm install -g npm
 
     # Add personal terminal profile
 	osascript \
