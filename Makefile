@@ -39,7 +39,7 @@ update: copy
 		python3 \
 		tree
 	brew linkapps emacs
-	npm update -g npm
+	for P in $$(npm -g outdated --parseable --depth=0 | cut -d: -f2); do npm -g update "$$P"; done
 
     # Add personal terminal profile
 	osascript \
