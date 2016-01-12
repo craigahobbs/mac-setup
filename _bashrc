@@ -24,10 +24,6 @@ if [ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]; then
     export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 fi
 
-# nvm
-export NVM_DIR=~/.nvm
-. $(brew --prefix nvm)/nvm.sh
-
 # pip
 export PIP_NO_BINARY=1
 export PIP_DISABLE_PIP_VERSION_CHECK=1

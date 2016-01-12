@@ -35,11 +35,11 @@ update: copy
 		bash-completion \
 		emacs --with-cocoa \
 		git \
-		nvm \
+		node \
 		python3 \
 		tree
 	brew linkapps emacs
-	mkdir -p "$(HOME)/.nvm"
+	npm update -g npm
 
     # Add personal terminal profile
 	osascript \
