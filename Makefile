@@ -35,11 +35,9 @@ update: copy
 		bash-completion \
 		emacs --with-cocoa \
 		git \
-		node \
 		python3 \
 		tree
 	brew linkapps emacs
-	for P in $$(npm outdated -g --parseable --depth=0 | cut -d: -f2); do npm update -g "$$P"; done
 
     # Add personal terminal profile
 	osascript \

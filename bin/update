@@ -2,5 +2,3 @@
 brew update
 brew upgrade --all
 brew cleanup
-for P in $(npm -g outdated --parseable --depth=0 | cut -d: -f2); do npm update -g "$P"; done
-npm cache clean
