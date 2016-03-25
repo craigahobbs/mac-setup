@@ -34,6 +34,7 @@
  '(global-whitespace-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(make-backup-files nil)
  '(scroll-conservatively 10000)
  '(sgml-basic-offset 4)
  '(show-paren-mode t nil (paren))
