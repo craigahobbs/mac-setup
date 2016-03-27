@@ -38,6 +38,8 @@ update: copy
 		python3 \
 		tree
 	brew linkapps emacs
+	pip3 install --upgrade pip
+	pip3 install --upgrade virtualenv
 
     # Add personal terminal profile
 	osascript \
