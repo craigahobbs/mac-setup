@@ -43,6 +43,10 @@ update: copy
 	pip3 install --upgrade pip
 	pip3 install --upgrade virtualenv
 
+	# Setup git
+	git config --global push.default "simple"
+	git config --global core.editor "emacs -nw"
+
     # Add personal terminal profile
 	osascript \
 		-e 'tell application "Terminal"' \
