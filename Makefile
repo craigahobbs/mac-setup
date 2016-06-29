@@ -37,6 +37,8 @@ update: copy
 		git \
 		python3 \
 		tree
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew cask install \
+		tcl
 	brew linkapps emacs
 	pip3 install --upgrade pip
 	pip3 install --upgrade virtualenv
