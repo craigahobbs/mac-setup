@@ -1,10 +1,7 @@
 #!/bin/sh -e -v
 brew update
-brew cask update
 brew upgrade --all
 brew cleanup
-brew cask cleanup
 brew doctor
-brew cask doctor
 pip3 install --upgrade pip
 pip3 install --upgrade virtualenv

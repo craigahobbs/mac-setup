@@ -35,10 +35,7 @@ update: copy
 		bash-completion \
 		emacs --with-cocoa \
 		git \
-		python3 \
-		tree
-	HOMEBREW_BUILD_FROM_SOURCE=1 brew cask install \
-		tcl
+		python3
 	brew linkapps emacs
 	pip3 install --upgrade pip
 	pip3 install --upgrade virtualenv
@@ -46,16 +43,6 @@ update: copy
 	# Setup git
 	git config --global push.default "simple"
 	git config --global core.editor "emacs -nw"
-
-    # Add personal terminal profile
-	osascript \
-		-e 'tell application "Terminal"' \
-		-e '    set _w to front window' \
-		-e '    open "$(abspath export/MyProfile.terminal)"' \
-		-e '    set frontmost of _w to true' \
-		-e '    set default settings to settings set "MyProfile"' \
-		-e '    set startup settings to settings set "MyProfile"' \
-		-e 'end tell'
 
 
 .PHONY: setup
