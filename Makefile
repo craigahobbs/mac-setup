@@ -1,6 +1,6 @@
 .PHONY: help
 help:
-	@echo "usage: make [help|copy|update|setup]"
+	@echo "usage: make [help|copy|setup]"
 
 
 .PHONY: copy
@@ -23,8 +23,8 @@ $(eval $(call COPY_RULE_FN, bin/emacs,     $(HOME)/bin))
 $(eval $(call COPY_RULE_FN, bin/update,    $(HOME)/bin))
 
 
-.PHONY: update
-update: copy
+.PHONY: setup
+setup: copy
 
     # Install homembrew
 	-ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -40,14 +40,10 @@ update: copy
 	pip3 install --upgrade pip
 	pip3 install --upgrade virtualenv
 
-	# Setup git
+    # Setup git
 	git config --global push.default "simple"
 	git config --global core.editor "emacs -nw"
 
-
-.PHONY: setup
-setup: update
-
     # Set the launcher path (requires reboot)
 	sudo launchctl config user path "$(PATH)"
-	sudo reboot
+	@echo Reboot required to use homebrew applications in Cocoa apps.

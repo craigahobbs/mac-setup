@@ -1,6 +1,6 @@
 #!/bin/sh -e -v
 brew update
-brew upgrade --all
+brew upgrade
 brew cleanup
 brew doctor
 pip3 install --upgrade pip
