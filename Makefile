@@ -19,7 +19,6 @@ $(eval $(call COPY_RULE_FN, _bash_profile, $(HOME), .bash_profile))
 $(eval $(call COPY_RULE_FN, _bashrc,       $(HOME), .bashrc))
 $(eval $(call COPY_RULE_FN, _emacs,        $(HOME), .emacs))
 $(eval $(call COPY_RULE_FN, _screenrc,     $(HOME), .screenrc))
-$(eval $(call COPY_RULE_FN, bin/emacs,     $(HOME)/bin))
 $(eval $(call COPY_RULE_FN, bin/update,    $(HOME)/bin))
 
 
@@ -27,7 +26,7 @@ $(eval $(call COPY_RULE_FN, bin/update,    $(HOME)/bin))
 setup: copy
 
     # Install homembrew
-	-ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
     # homebrew packages
 	HOMEBREW_BUILD_FROM_SOURCE=1 brew install \
