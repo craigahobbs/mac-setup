@@ -32,7 +32,5 @@
  '(truncate-lines t)
  '(whitespace-style (quote (face tabs trailing)))
  '(x-select-enable-clipboard t))
-
 (put 'upcase-region 'disabled nil)
-
 (put 'downcase-region 'disabled nil)
