@@ -1,13 +1,5 @@
-;;; Disable C-z to prevent crash on Mac OS X
-(if (eq window-system 'ns)
-    (global-unset-key (kbd "C-z"))
-)
-
 ;;; Toggle truncate-lines key-binding
 (global-set-key "\C-xt" 'toggle-truncate-lines)
-
-;;; js2-mode
-;(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;;;
 ;;; Customize
@@ -20,13 +12,10 @@
  '(auto-save-default nil)
  '(c-basic-offset 4)
  '(column-number-mode t)
- '(comment-column 40)
  '(compilation-scroll-output t)
  '(default-frame-alist
     (quote
-     ((foreground-color . "white")
-      (background-color . "black")
-      (width . 120)
+     ((width . 120)
       (height . 55)
       (tool-bar-lines . 0))))
  '(fill-column 80)
