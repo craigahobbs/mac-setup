@@ -30,6 +30,7 @@ setup: copy
 
     # homebrew packages
 	HOMEBREW_BUILD_FROM_SOURCE=1 brew install \
+		aria2 \
 		aspell --with-lang-en \
 		bash-completion \
 		emacs --with-cocoa \
