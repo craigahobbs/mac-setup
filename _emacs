@@ -13,6 +13,7 @@
  '(c-basic-offset 4)
  '(column-number-mode t)
  '(compilation-scroll-output t)
+ '(compile-command "make ")
  '(default-frame-alist (quote ((width . 120) (height . 55) (tool-bar-lines . 0))))
  '(fill-column 80)
  '(global-auto-revert-mode t nil (autorevert))
