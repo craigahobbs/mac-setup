@@ -29,13 +29,12 @@ setup: copy
 	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
     # homebrew packages
-	HOMEBREW_BUILD_FROM_SOURCE=1 brew install \
-		aria2 \
-		aspell --with-lang-en \
-		bash-completion \
-		emacs --with-cocoa \
-		git \
-		python3
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew install aria2
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew install aspell --with-lang-en
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew install bash-completion
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew install emacs --with-cocoa
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew install git
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew install python3
 	brew linkapps emacs
 	pip3 install --upgrade pip
 	pip3 install --upgrade virtualenv
