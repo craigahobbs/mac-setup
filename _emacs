@@ -1,5 +1,22 @@
 ;;; Toggle truncate-lines key-binding
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+;; js2-jsx-mode
+(unless (package-installed-p 'js2-mode)
+  (package-install 'js2-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+
+;; global toggle lines command
 (global-set-key "\C-xt" 'toggle-truncate-lines)
+
+;; Enable global upcase/downcase commands
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 ;;;
 ;;; Customize
@@ -21,16 +38,16 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
+ '(package-selected-packages (quote (js2-mode)))
  '(scroll-conservatively 10000)
- '(select-enable-clipboard t)
  '(sgml-basic-offset 4)
  '(show-paren-mode t nil (paren))
  '(split-width-threshold nil)
  '(tab-width 4)
  '(truncate-lines t)
- '(whitespace-style (quote (face tabs trailing))))
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
+ '(whitespace-style
+   (quote
+    (empty face indentation::space space-after-tab space-before-tab tabs trailing))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
