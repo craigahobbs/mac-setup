@@ -7,6 +7,8 @@
 (package-initialize)
 
 ;; js2-jsx-mode
+(unless package-archive-contents
+  (package-refresh-contents))
 (unless (package-installed-p 'js2-mode)
   (package-install 'js2-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
