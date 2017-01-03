@@ -5,6 +5,3 @@ brew cleanup
 brew doctor
 pip3 install --upgrade pip
 pip3 install --upgrade virtualenv
-
-# Fix git-gui crash - http://stackoverflow.com/questions/39833961/git-gui-crashes-on-mac-os-x-sierra
-cp /System/Library/Frameworks/Tk.framework/Versions/*/Resources/Wish.app/Contents/MacOS/Wish /usr/local/Cellar/git/*/share/git-gui/lib/Git\ Gui.app/Contents/MacOS/
