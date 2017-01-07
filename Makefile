@@ -1,6 +1,6 @@
 .PHONY: help
 help:
-	@echo "usage: make [help|copy|setup]"
+	@echo "usage: make [help|copy|update|setup]"
 
 
 .PHONY: copy
@@ -22,11 +22,8 @@ $(eval $(call COPY_RULE_FN, _screenrc,     $(HOME), .screenrc))
 $(eval $(call COPY_RULE_FN, bin/update,    $(HOME)/bin))
 
 
-.PHONY: setup
-setup: copy
-
-    # Install homembrew
-	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+.PHONY: update
+update: copy
 
     # homebrew packages
 	HOMEBREW_BUILD_FROM_SOURCE=1 brew install aria2
@@ -34,6 +31,7 @@ setup: copy
 	HOMEBREW_BUILD_FROM_SOURCE=1 brew install bash-completion
 	HOMEBREW_BUILD_FROM_SOURCE=1 brew install emacs --with-cocoa
 	HOMEBREW_BUILD_FROM_SOURCE=1 brew install git
+	HOMEBREW_BUILD_FROM_SOURCE=1 brew install homebrew/dupes/grep --with-default-names
 	HOMEBREW_BUILD_FROM_SOURCE=1 brew install python3
 	brew linkapps emacs
 	pip3 install --upgrade pip
@@ -42,6 +40,17 @@ setup: copy
     # Setup git
 	git config --global push.default "simple"
 	git config --global core.editor "emacs -nw"
+
+
+.PHONY: homebrew
+homebrew:
+
+    # Install homembrew
+	/usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+
+.PHONY: setup
+setup: homebrew update
 
     # Set the launcher path (requires reboot)
 	sudo launchctl config user path "$(PATH)"
