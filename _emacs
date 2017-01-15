@@ -9,7 +9,6 @@
 ;; chsl-mode
 (unless (package-installed-p 'chsl-mode)
   (let ((chsl-mode-file (make-temp-file "chsl-mode")))
-    (message "Installing chsl-mode")
     (url-copy-file "https://raw.githubusercontent.com/craigahobbs/chisel/master/extra/chsl-mode.el" chsl-mode-file t)
     (package-install-file chsl-mode-file)
     (delete-file chsl-mode-file)))
