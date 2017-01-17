@@ -1,5 +1,3 @@
-;;; Toggle truncate-lines key-binding
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -21,7 +19,7 @@
   (package-install 'js2-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
 
-;; global toggle lines command
+;; global toggle-lines command
 (global-set-key "\C-xt" 'toggle-truncate-lines)
 
 ;; Enable global upcase/downcase commands
