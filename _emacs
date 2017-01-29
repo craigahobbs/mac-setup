@@ -3,6 +3,8 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
 
 ;; chsl-mode
 (unless (package-installed-p 'chsl-mode)
@@ -13,8 +15,6 @@
 (add-to-list 'auto-mode-alist '("\\.chsl?\\'" . chsl-mode))
 
 ;; js2-jsx-mode
-(unless package-archive-contents
-  (package-refresh-contents))
 (unless (package-installed-p 'js2-mode)
   (package-install 'js2-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
