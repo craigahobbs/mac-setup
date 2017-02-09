@@ -19,6 +19,7 @@ $(eval $(call COPY_RULE_FN, _bash_profile, $(HOME), .bash_profile))
 $(eval $(call COPY_RULE_FN, _bashrc,       $(HOME), .bashrc))
 $(eval $(call COPY_RULE_FN, _emacs,        $(HOME), .emacs))
 $(eval $(call COPY_RULE_FN, _screenrc,     $(HOME), .screenrc))
+$(eval $(call COPY_RULE_FN, bin/ediff,     $(HOME)/bin))
 $(eval $(call COPY_RULE_FN, bin/update,    $(HOME)/bin))
 
 
