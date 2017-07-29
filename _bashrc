@@ -7,9 +7,6 @@ export PATH=$HOME/bin:/usr/local/sbin:$PATH
 export CLICOLOR=1
 export LSCOLORS=GxfxcxdxBxegedabagacad
 
-# homebrew
-export HOMEBREW_BUILD_FROM_SOURCE=1
-
 # bash-completion
 if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
     source "$(brew --prefix)/etc/bash_completion"

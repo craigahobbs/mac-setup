@@ -27,13 +27,13 @@ $(eval $(call COPY_RULE_FN, bin/update,    $(HOME)/bin))
 update: copy
 
     # homebrew packages
-	HOMEBREW_BUILD_FROM_SOURCE=1 brew install aria2
-	HOMEBREW_BUILD_FROM_SOURCE=1 brew install aspell --with-lang-en
-	HOMEBREW_BUILD_FROM_SOURCE=1 brew install bash-completion
-	HOMEBREW_BUILD_FROM_SOURCE=1 brew install emacs --with-cocoa
-	HOMEBREW_BUILD_FROM_SOURCE=1 brew install git
-	HOMEBREW_BUILD_FROM_SOURCE=1 brew install homebrew/dupes/grep --with-default-names
-	HOMEBREW_BUILD_FROM_SOURCE=1 brew install python3
+	brew install aria2
+	brew install aspell --with-lang-en
+	brew install bash-completion
+	brew install emacs --with-cocoa
+	brew install git
+	brew install homebrew/dupes/grep --with-default-names
+	brew install python3
 	brew linkapps emacs
 	pip3 install --upgrade pip
 	pip3 install --upgrade virtualenv
