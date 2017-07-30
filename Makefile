@@ -35,8 +35,7 @@ update: copy
 	brew install homebrew/dupes/grep --with-default-names
 	brew install python3
 	brew linkapps emacs
-	pip3 install --upgrade pip
-	pip3 install --upgrade virtualenv
+	pip3 install --upgrade --force-reinstall pip
 
     # Setup git
 	git config --global push.default "simple"
