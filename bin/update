@@ -3,4 +3,4 @@ brew update
 brew upgrade
 brew cleanup
 brew doctor
-pip3 install --upgrade pip
+python3 -m pip install --upgrade pip virtualenv

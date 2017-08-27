@@ -27,15 +27,16 @@ $(eval $(call COPY_RULE_FN, bin/update,    $(HOME)/bin))
 update: copy
 
     # homebrew packages
-	brew install aria2
+	brew install \
+		aria2 \
+		bash-completion \
+		git \
+		python3
 	brew install aspell --with-lang-en
-	brew install bash-completion
 	brew install emacs --with-cocoa
-	brew install git
 	brew install homebrew/dupes/grep --with-default-names
-	brew install python3
 	brew linkapps emacs
-	pip3 install --upgrade --force-reinstall pip
+	python3 -m pip install --upgrade pip virtualenv
 
     # Setup git
 	git config --global push.default "simple"
