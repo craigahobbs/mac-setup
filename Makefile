@@ -3,15 +3,13 @@ help:
 	@echo "usage: make [help|copy|update|setup]"
 
 
-.PHONY: copy
-copy:
-
 # File copy rule function - src_path, dst_dir
 define COPY_RULE_FN
 $(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1))): $(strip $(1))
 	mkdir -p $$(dir $$@)
 	cp $$< $$@
 
+.PHONY: copy
 copy: $(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1)))
 endef
 
@@ -44,12 +42,10 @@ update: copy
 
     # Setup git
 	if ! git config --get user.name; then \
-		read -p 'Enter full name for git config: ' NAME && \
-		git config --global user.name "$NAME" ; \
+		read -p 'Enter full name for git config: ' NAME && git config --global user.name "$$NAME"; \
 	fi
 	if ! git config --get user.email; then \
-		read -p 'Enter email for git config: ' EMAIL && \
-		git config --global user.email "$EMAIL" ; \
+		read -p 'Enter email for git config: ' EMAIL && git config --global user.email "$$EMAIL"; \
 	fi
 	git config --global push.default "simple"
 	git config --global core.editor "emacs -nw"
