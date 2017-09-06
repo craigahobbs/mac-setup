@@ -35,10 +35,22 @@ update: copy
 	brew install aspell --with-lang-en
 	brew install emacs --with-cocoa
 	brew install homebrew/dupes/grep --with-default-names
-	brew linkapps emacs
+
+    # Link emacs application
+	ln -f -s /usr/local/opt/emacs/Emacs.app $(HOME)/Applications
+
+    # Upgrade python3 pip and virtualenv
 	python3 -m pip install --upgrade pip virtualenv
 
     # Setup git
+	if ! git config --get user.name; then \
+		read -p 'Enter full name for git config: ' NAME && \
+		git config --global user.name "$NAME" ; \
+	fi
+	if ! git config --get user.email; then \
+		read -p 'Enter email for git config: ' EMAIL && \
+		git config --global user.email "$EMAIL" ; \
+	fi
 	git config --global push.default "simple"
 	git config --global core.editor "emacs -nw"
 
