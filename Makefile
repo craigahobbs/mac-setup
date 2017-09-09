@@ -28,6 +28,7 @@ update: copy
 	brew install \
 		aria2 \
 		bash-completion \
+		coreutils \
 		git \
 		python3
 	brew install aspell --with-lang-en
