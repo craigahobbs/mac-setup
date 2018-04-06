@@ -14,10 +14,13 @@
     (delete-file chsl-mode-file)))
 (add-to-list 'auto-mode-alist '("\\.chsl?\\'" . chsl-mode))
 
-;; js2-jsx-mode
-(unless (package-installed-p 'js2-mode)
-  (package-install 'js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+;; web-mode
+(unless (package-installed-p 'web-mode)
+  (let ((web-mode-file (make-temp-file "web-mode")))
+    (url-copy-file "https://raw.githubusercontent.com/fxbois/web-mode/master/web-mode.el" web-mode-file t)
+    (package-install-file web-mode-file)
+    (delete-file web-mode-file)))
+(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode))
 
 ;; global toggle-lines command
 (global-set-key "\C-xt" 'toggle-truncate-lines)
