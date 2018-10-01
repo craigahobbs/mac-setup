@@ -32,7 +32,7 @@ update: copy
 		python3
 	brew install aspell --with-lang-en
 	brew install emacs --with-cocoa
-	brew install homebrew/dupes/grep --with-default-names
+	brew install grep --with-default-names
 
     # Link emacs application
 	ln -f -s /usr/local/opt/emacs/Emacs.app $(HOME)/Applications
