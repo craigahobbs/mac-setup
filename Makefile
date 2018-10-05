@@ -31,14 +31,14 @@ update: copy
 		git \
 		python3
 	brew install aspell --with-lang-en
-	brew install emacs --with-cocoa
+	brew cask install emacs
 	brew install grep --with-default-names
 
     # Link emacs application
 	ln -f -s /usr/local/opt/emacs/Emacs.app $(HOME)/Applications
 
     # Upgrade python3 pip and virtualenv
-	python3 -m pip install --upgrade pip virtualenv
+	python3 -m pip install --upgrade pip setuptools wheel
 
     # Setup git
 	if ! git config --get user.name; then \
