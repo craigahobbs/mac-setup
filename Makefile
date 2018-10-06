@@ -34,21 +34,8 @@ update: copy
 	brew cask install emacs
 	brew install grep --with-default-names
 
-    # Link emacs application
-	ln -f -s /usr/local/opt/emacs/Emacs.app $(HOME)/Applications
-
-    # Upgrade python3 pip and virtualenv
+    # Upgrade python3 pip and friends
 	python3 -m pip install --upgrade pip setuptools wheel
-
-    # Setup git
-	if ! git config --get user.name; then \
-		read -p 'Enter full name for git config: ' NAME && git config --global user.name "$$NAME"; \
-	fi
-	if ! git config --get user.email; then \
-		read -p 'Enter email for git config: ' EMAIL && git config --global user.email "$$EMAIL"; \
-	fi
-	git config --global push.default "simple"
-	git config --global core.editor "emacs -nw"
 
 
 .PHONY: homebrew
@@ -63,4 +50,3 @@ setup: homebrew update
 
     # Set the launcher path (requires reboot)
 	sudo launchctl config user path "$(PATH)"
-	@echo Reboot required to use homebrew applications in Cocoa apps.
