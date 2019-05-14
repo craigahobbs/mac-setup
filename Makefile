@@ -27,12 +27,12 @@ update: copy
     # homebrew packages
 	brew install \
 		aria2 \
+		aspell \
 		bash-completion \
 		git \
+		grep \
 		python3
-	brew install aspell --with-lang-en
 	brew cask install emacs
-	brew install grep --with-default-names
 
     # Upgrade python3 pip and friends
 	python3 -m pip install --upgrade pip setuptools wheel

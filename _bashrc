@@ -1,7 +1,7 @@
 #-*- mode: sh -*-
 
 # personal bin directory
-export PATH=$HOME/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/bin:$HOME/bin/env/bin:/usr/local/sbin:$PATH
 
 # enable terminal colors - https://softwaregravy.wordpress.com/2010/10/16/ls-colors-for-mac/
 export CLICOLOR=1
