@@ -1,10 +1,4 @@
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
 (package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
 
 ;; chsl-mode
 (unless (package-installed-p 'chsl-mode)
@@ -13,14 +7,6 @@
     (package-install-file chsl-mode-file)
     (delete-file chsl-mode-file)))
 (add-to-list 'auto-mode-alist '("\\.chsl?\\'" . chsl-mode))
-
-;; web-mode
-(unless (package-installed-p 'web-mode)
-  (let ((web-mode-file (make-temp-file "web-mode")))
-    (url-copy-file "https://raw.githubusercontent.com/fxbois/web-mode/master/web-mode.el" web-mode-file t)
-    (package-install-file web-mode-file)
-    (delete-file web-mode-file)))
-(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode))
 
 ;; global toggle-lines command
 (global-set-key "\C-xt" 'toggle-truncate-lines)
