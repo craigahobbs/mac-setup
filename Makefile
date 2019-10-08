@@ -28,8 +28,12 @@ update: copy
 		aria2 \
 		aspell \
 		git \
-		grep
+		grep \
+		python3
 	brew cask install emacs
+
+    # Upgrade python3 pip and friends
+	python3 -m pip install --upgrade pip setuptools wheel
 
 
 .PHONY: homebrew
