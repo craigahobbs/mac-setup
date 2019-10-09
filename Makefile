@@ -16,6 +16,7 @@ endef
 $(eval $(call COPY_RULE_FN, _emacs,        $(HOME), .emacs))
 $(eval $(call COPY_RULE_FN, _screenrc,     $(HOME), .screenrc))
 $(eval $(call COPY_RULE_FN, _zshenv,       $(HOME), .zshenv))
+$(eval $(call COPY_RULE_FN, _zshrc,        $(HOME), .zshrc))
 $(eval $(call COPY_RULE_FN, bin/ediff,     $(HOME)/bin))
 $(eval $(call COPY_RULE_FN, bin/update,    $(HOME)/bin))
 
