@@ -1,8 +1,0 @@
-# setup the zsh completion system
-autoload -U compinit && compinit
-
-# git
-if [ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]; then
-    source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
-    setopt PROMPT_SUBST ; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
-fi

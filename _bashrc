@@ -1,0 +1,22 @@
+#-*- mode: sh -*-
+
+# personal bin directory
+export PATH=$HOME/bin:$HOME/bin/env/bin:/usr/local/sbin:$PATH
+
+# enable terminal colors - https://softwaregravy.wordpress.com/2010/10/16/ls-colors-for-mac/
+export CLICOLOR=1
+export LSCOLORS=GxfxcxdxBxegedabagacad
+
+# bash-completion@2
+if [ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
+    source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+fi
+
+# git
+if [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ]; then
+    source "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
+fi
+if [ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]; then
+    source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+    export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+fi

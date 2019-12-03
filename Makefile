@@ -13,10 +13,10 @@ $(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1))): $(strip $(1))
 copy: $(strip $(2))/$(if $(3),$(strip $(3)),$(notdir $(1)))
 endef
 
+$(eval $(call COPY_RULE_FN, _bash_profile, $(HOME), .bash_profile))
+$(eval $(call COPY_RULE_FN, _bashrc,       $(HOME), .bashrc))
 $(eval $(call COPY_RULE_FN, _emacs,        $(HOME), .emacs))
 $(eval $(call COPY_RULE_FN, _screenrc,     $(HOME), .screenrc))
-$(eval $(call COPY_RULE_FN, _zshenv,       $(HOME), .zshenv))
-$(eval $(call COPY_RULE_FN, _zshrc,        $(HOME), .zshrc))
 $(eval $(call COPY_RULE_FN, bin/ediff,     $(HOME)/bin))
 $(eval $(call COPY_RULE_FN, bin/update,    $(HOME)/bin))
 
@@ -28,10 +28,15 @@ update: copy
 	brew install \
 		aria2 \
 		aspell \
+		bash \
+		bash-completion@2 \
 		git \
 		grep \
 		python3
 	brew cask install emacs
+
+    # Upgrade python3 pip and friends
+	python3 -m pip install --upgrade pip setuptools wheel
 
 
 .PHONY: homebrew
@@ -43,6 +48,12 @@ homebrew:
 
 .PHONY: setup
 setup: homebrew update
+
+    # Set homebrew bash as the default shell
+	if ! grep -q "$$(brew --prefix)/bin/bash" /etc/shells; \
+		then echo "$$(brew --prefix)/bin/bash" | sudo tee -a /etc/shells; \
+	fi
+	chsh -s "$$(brew --prefix)/bin/bash"
 
     # Set the launcher path (requires reboot)
 	sudo launchctl config user path "$(PATH)"
