@@ -31,6 +31,7 @@ update: copy
 		bash \
 		bash-completion@2 \
 		git \
+		git-gui \
 		grep \
 		python3
 	brew cask install emacs
