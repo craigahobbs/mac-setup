@@ -28,4 +28,4 @@ For better gunicorn defaults, add the following to the end of your .profile:
 .. code-block:: bash
 
    # Gunicorn
-   export GUNICORN_CMD_ARGS=--reload --bind=0.0.0.0:8080 --access-logfile=- --error-logfile=- --workers=2 --threads=2
+   export GUNICORN_CMD_ARGS="--reload --bind=0.0.0.0:8080 --access-logfile=- --error-logfile=- --workers=2 --threads=2"
