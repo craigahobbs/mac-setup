@@ -29,7 +29,7 @@
  '(compilation-scroll-output t)
  '(compile-command "make ")
  '(default-frame-alist (quote ((width . 120) (height . 55) (tool-bar-lines . 0))))
- '(fill-column 80)
+ '(fill-column 120)
  '(global-auto-revert-mode t nil (autorevert))
  '(global-whitespace-mode t)
  '(indent-tabs-mode nil)
