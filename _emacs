@@ -8,6 +8,11 @@
     (delete-file chsl-mode-file)))
 (add-to-list 'auto-mode-alist '("\\.chsl?\\'" . chsl-mode))
 
+;; js2-mode
+(unless (package-installed-p 'js2-mode)
+  (package-install 'js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
 ;; global toggle-lines command
 (global-set-key "\C-xt" 'toggle-truncate-lines)
 
