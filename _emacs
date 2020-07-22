@@ -10,7 +10,7 @@
 
 ;; js2-mode
 (unless (package-installed-p 'js2-mode)
-  (package-install 'js2-mode))
+  (package-install `js2-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; global toggle-lines command
@@ -40,7 +40,7 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
- '(package-selected-packages (quote (js2-mode)))
+ '(package-selected-packages (quote (js2-mode chsl-mode)))
  '(scroll-conservatively 10000)
  '(sgml-basic-offset 4)
  '(show-paren-mode t nil (paren))
