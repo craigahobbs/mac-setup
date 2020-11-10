@@ -1,3 +1,7 @@
+;; default directory
+(setq default-directory (concat (getenv "HOME") "/"))
+
+;; activate packages
 (package-initialize)
 
 ;; chsl-mode
@@ -33,14 +37,14 @@
  '(column-number-mode t)
  '(compilation-scroll-output t)
  '(compile-command "make ")
- '(default-frame-alist (quote ((width . 120) (height . 55) (tool-bar-lines . 0))))
+ '(default-frame-alist '((width . 120) (height . 55) (tool-bar-lines . 0)))
  '(fill-column 100)
  '(global-auto-revert-mode t nil (autorevert))
  '(global-whitespace-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
- '(package-selected-packages (quote (js2-mode chsl-mode)))
+ '(package-selected-packages '(chsl-mode))
  '(scroll-conservatively 10000)
  '(sentence-end-double-space nil)
  '(sgml-basic-offset 4)
@@ -49,8 +53,7 @@
  '(tab-width 4)
  '(truncate-lines t)
  '(whitespace-style
-   (quote
-    (empty face indentation::space space-after-tab space-before-tab tabs trailing))))
+   '(empty face indentation::space space-after-tab space-before-tab tabs trailing)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
