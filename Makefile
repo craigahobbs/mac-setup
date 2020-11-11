@@ -26,14 +26,14 @@ update: copy
 
     # homebrew packages
 	brew install \
-		aria2 \
 		aspell \
 		bash \
 		bash-completion@2 \
 		git \
 		git-gui \
 		grep \
-		python3
+		python3 \
+		xquartz
 	brew cask install emacs
 
     # Upgrade python3 pip and friends
