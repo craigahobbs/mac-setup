@@ -32,9 +32,12 @@ update: copy
 		git \
 		git-gui \
 		grep \
-		python3 \
+		python
+	brew cask install \
+		emacs \
+		gimp \
+		libreoffice \
 		xquartz
-	brew cask install emacs
 
     # Upgrade python3 pip and friends
 	python3 -m pip install --upgrade pip setuptools wheel
