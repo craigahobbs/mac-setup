@@ -35,6 +35,7 @@ update: copy
 		python
 	brew cask install \
 		emacs \
+		firefox \
 		gimp \
 		libreoffice \
 		xquartz
