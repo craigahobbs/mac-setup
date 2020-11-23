@@ -1,19 +1,38 @@
-Usage
-=====
+Application Links
+=================
 
-To run mac-setup paste the following in a Mac OS X Terminal window:
+`Chrome <https://www.google.com/chrome/>`__
 
-.. code-block:: bash
+`Docker <https://www.docker.com/get-started>`__
 
-    TMP="$HOME/tmp" && mkdir -p "$TMP" && git clone "https://github.com/craigahobbs/mac-setup.git" "$TMP/mac-setup" && cd "$TMP/mac-setup" && make setup
+`Emacs <https://emacsformacosx.com/>`__
+
+`GIMP <https://www.gimp.org/downloads/>`__
+
+`Firefox <https://www.mozilla.org/en-US/firefox/new/>`__
+
+`Parallels <https://my.parallels.com/login>`__
+
+`Ubuntu Linux <https://ubuntu.com/download/desktop>`__
+
+
+Git SSH Key
+===========
+
+To generate and copy a new git ssh key execute the following:
+
+.. code-block:: sh
+
+   ssh-keygen -t ed25519 -C macbook-pro
+   cat ~/.ssh/id_ed25519.pub | pbcopy
 
 
 Linux Notes
------------
+===========
 
 To add a git bash command line prompt, add the following to the end of your .bashrc:
 
-.. code-block:: bash
+.. code-block:: sh
 
    # git-prompt.sh
    if [ ! -f ~/.git-prompt.sh ]; then
@@ -25,7 +44,7 @@ To add a git bash command line prompt, add the following to the end of your .bas
 
 For better gunicorn defaults, add the following to the end of your .profile:
 
-.. code-block:: bash
+.. code-block:: sh
 
    # Gunicorn
    export GUNICORN_CMD_ARGS="--reload --bind=0.0.0.0:8080 --access-logfile=- --error-logfile=- --workers=2 --threads=2"

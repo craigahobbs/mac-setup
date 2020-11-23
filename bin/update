@@ -1,6 +1,0 @@
-#!/bin/sh -e -v
-brew update
-brew upgrade
-brew cleanup
-brew doctor
-python3 -m pip install --upgrade pip setuptools wheel
