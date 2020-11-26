@@ -1,32 +1,3 @@
-Application Links
-=================
-
-`Chrome <https://www.google.com/chrome/>`__
-
-`Docker <https://www.docker.com/get-started>`__
-
-`Emacs <https://emacsformacosx.com/>`__
-
-`GIMP <https://www.gimp.org/downloads/>`__
-
-`Firefox <https://www.mozilla.org/en-US/firefox/new/>`__
-
-`Parallels <https://my.parallels.com/login>`__
-
-`Ubuntu Linux <https://ubuntu.com/download/desktop>`__
-
-
-Git SSH Key
-===========
-
-To generate and copy a new git ssh key execute the following:
-
-.. code-block:: sh
-
-   ssh-keygen -t ed25519 -C macbook-pro
-   cat ~/.ssh/id_ed25519.pub | pbcopy
-
-
 Linux Notes
 ===========
 
