@@ -1,3 +1,9 @@
+# Homebrew
+if [ -x /opt/homebrew/bin/brew ]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/opt/homebrew/sbin:$PATH"
+fi
+
 # Personal path
 export PATH=$HOME/bin:$PATH
 
